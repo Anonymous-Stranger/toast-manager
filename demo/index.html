@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<!-- author Akash Gaonkar -->
+
+<html>
+	
+	<head>
+		<title>Toast Manager Demo</title>
+		<meta charset='utf-8'/>
+
+		<script src='../../webcomponentsjs/webcomponents-lite.min.js'></script>
+
+		<link rel='import' href='../toast-manager.html'/>
+	</head>
+
+	<body>
+
+		<toast-manager id='toastManager'></toast-manager>
+
+		<input id='toastText' type='text' value='Some Text' placeholder='Toast Text'/> <button onclick='addToast()'>Show</button>
+
+		<script>
+			var toastTextInput = document.getElementById('toastText');
+			var toastManager = Polymer.dom(document).querySelector('#toastManager');
+
+			function addToast() {
+				toastManager.add(toastTextInput.value);
+			}
+		</script>
+
+	</body>
+
+</html>

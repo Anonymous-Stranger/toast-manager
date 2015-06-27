@@ -1,0 +1,49 @@
+
+<link rel='import' href='../polymer/polymer.html'/>
+
+<link rel='import' href='../paper-toast/paper-toast.html'/>
+
+<dom-module id='toast-manager'>
+	
+	<template>
+		<paper-toast id='toast' duration='{{toastDuration}}'></paper-toast>
+	</template>
+
+	<script>
+		Polymer({
+			
+			is: 'toast-manager',
+
+			properties: {
+				toasts: {
+					type: Array,
+					value: [],
+					readonly: true,
+				},
+				toastDuration: {
+					type: Number,
+					value: 1500
+				}
+			},
+
+			add: function(text) {
+				this.push('toasts', text);
+				this.showNext();
+			},
+
+			showNext: function() {
+				if (this.toasts.length == 0) return;
+
+				if (!this.$.toast.visible) {
+					this.$.toast.text = this.toasts.shift();
+					this.async(function() {
+						this.$.toast.show();
+					}, 100);
+				}
+
+				this.async(this.showNext, 500);
+			}
+
+		});
+	</script>
+</dom-module>

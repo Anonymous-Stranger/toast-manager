@@ -1,0 +1,22 @@
+{
+  "name": "toast-manager",
+  "version": "1.0.1",
+  "authors": [
+    "Akash Gaonkar <akashgaonkar@gmail.com>"
+  ],
+  "description": "A web component for multiple paper-toast notifications.",
+  "main": "toast-manager.html",
+  "keywords": [
+    "web-components",
+    "paper-toast"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "../",
+    "test",
+    "tests"
+  ]
+}
